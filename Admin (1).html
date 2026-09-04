@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humayun Traders - Admin Panel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,sans-serif}.poppins{font-family:Poppins,sans-serif}</style>
+</head>
+<body class="bg-[#f1f5f9]">
+<header class="bg-white border-b sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<div class="flex items-center gap-3"><div class="w-9 h-9 bg-[#0F4C75] rounded-lg flex items-center justify-center text-white font-bold">H</div><div><div class="poppins font-bold text-sm">HUMAYUN TRADERS</div><div class="text-[10px] text-gray-500 -mt-1">ADMIN PANEL - ERP Ready</div></div></div>
+<div class="flex gap-2"><a href="index.html" class="border px-4 py-2 rounded-full text-sm font-bold">View Website</a><button id="exportBtn" class="bg-[#0F4C75] text-white px-4 py-2 rounded-full text-sm font-bold">Export JSON</button></div>
+</div>
+</header>
+
+<div class="max-w-7xl mx-auto px-4 py-6 grid lg:grid-cols-12 gap-6">
+<!-- Sidebar -->
+<div class="lg:col-span-3">
+<div class="bg-white rounded-2xl border p-4">
+<h3 class="font-bold text-sm">📊 Dashboard</h3>
+<div class="mt-4 space-y-2 text-sm">
+<div class="flex justify-between bg-blue-50 p-3 rounded-xl"><span>Total Products</span><b id="totalP">8</b></div>
+<div class="flex justify-between bg-green-50 p-3 rounded-xl"><span>In Stock</span><b id="inStock">7</b></div>
+<div class="flex justify-between bg-yellow-50 p-3 rounded-xl"><span>Low Stock</span><b>1</b></div>
+<div class="flex justify-between bg-purple-50 p-3 rounded-xl"><span>WhatsApp: 0308-4506303</span><span>✓</span></div>
+<div class="flex justify-between bg-gray-50 p-3 rounded-xl"><span>Email</span><span class="text-[11px]">nabeel.rehman27@gmail.com</span></div>
+</div>
+<div class="mt-6">
+<h4 class="font-bold text-xs">🔗 HumayunERP Integration Status</h4>
+<div class="mt-2 bg-gray-900 text-green-400 p-3 rounded-xl text-[11px] font-mono">
+API: https://api.humayuntraders.pk/erp<br>
+Status: Ready to connect<br>
+Sync: Every 5 mins<br>
+Method: Cloudflare Worker
+</div>
+<button class="w-full mt-3 bg-gray-900 text-white py-2 rounded-full text-xs">Connect ERP (Coming Soon)</button>
+</div>
+</div>
+</div>
+
+<!-- Main -->
+<div class="lg:col-span-9">
+<div class="bg-white rounded-2xl border p-5">
+<div class="flex justify-between items-center"><h2 class="poppins font-bold text-lg">📦 Manage Products</h2><button id="addBtn" class="bg-[#25D366] text-white px-5 py-2 rounded-full text-sm font-bold">+ Add Product</button></div>
+
+<div class="mt-5 grid md:grid-cols-2 gap-3 bg-gray-50 p-4 rounded-xl border">
+<input id="fName" placeholder="Product Name: Certeza Nebulizer" class="border rounded-lg px-3 py-2 text-sm">
+<input id="fModel" placeholder="Model: NB-608" class="border rounded-lg px-3 py-2 text-sm">
+<input id="fBrand" placeholder="Brand: Certeza" class="border rounded-lg px-3 py-2 text-sm">
+<select id="fCat" class="border rounded-lg px-3 py-2 text-sm"><option>BP Monitors</option><option>Glucometers</option><option>Nebulizers</option><option>Pulse Oximeters</option><option>Thermometers</option><option>Suction Machines</option><option>Oxygen Equipment</option><option>Breast Pumps</option><option>Humidifiers</option><option>Air Purifiers</option><option>Stethoscopes</option><option>Other Medical</option></select>
+<input id="fPrice" type="number" placeholder="Price PKR: 6500" class="border rounded-lg px-3 py-2 text-sm">
+<select id="fStock" class="border rounded-lg px-3 py-2 text-sm"><option>In Stock</option><option>Low Stock</option><option>Out of Stock</option><option>On Demand</option></select>
+<input id="fDesc" placeholder="Short Description" class="border rounded-lg px-3 py-2 text-sm md:col-span-2">
+<input id="fIcon" placeholder="Icon: 🫁 ❤️ 🩸 etc" class="border rounded-lg px-3 py-2 text-sm">
+<input id="fWarranty" placeholder="Warranty: 2 Years" class="border rounded-lg px-3 py-2 text-sm">
+<div class="md:col-span-2 flex gap-2"><button id="saveBtn" class="flex-1 bg-[#0F4C75] text-white py-2.5 rounded-full font-bold text-sm">Save Product</button><button id="cancelBtn" class="border px-6 py-2.5 rounded-full text-sm">Cancel</button></div>
+</div>
+
+<div class="mt-6 overflow-auto">
+<table class="w-full text-sm">
+<thead class="text-xs text-gray-500 border-b"><tr><th class="text-left py-2">Product</th><th class="text-left">Model</th><th>Brand</th><th>Price</th><th>Stock</th><th>Action</th></tr></thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+</div>
+
+<div class="mt-6 bg-white rounded-2xl border p-5">
+<h3 class="font-bold">🚀 GitHub + Cloudflare Deploy Guide</h3>
+<div class="mt-3 text-xs leading-6 bg-gray-50 p-4 rounded-xl border">
+<b>Files in this project:</b><br>
+- index.html (Main Website) - WhatsApp: 0308-4506303<br>
+- admin.html (This Admin Panel)<br>
+- products.json (Auto-generated, for ERP sync)<br><br>
+<b>Deploy Steps:</b><br>
+1. GitHub repo me dono files push karo<br>
+2. Cloudflare Pages > Connect GitHub > Build: empty, Output: /<br>
+3. Live URL: https://humayun-traders.pages.dev<br>
+4. Custom domain: humayuntraders.pk (Cloudflare me add)<br><br>
+<b>ERP Integration Next:</b><br>
+- Cloudflare D1 Database create karo: products table<br>
+- Cloudflare Worker API: /api/products, /api/orders<br>
+- HumayunERP me endpoint: /api/erp/stock<br>
+- Worker har 5 min me stock sync karega
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+let products = JSON.parse(localStorage.getItem('ht_products') || 'null') || [
+{id:1,name:"Certeza Nebulizer",model:"NB-608",brand:"Certeza",cat:"Nebulizers",price:6500,stock:"In Stock",desc:"Compressor Nebulizer",icon:"🫁",warranty:"2 Years"},
+{id:2,name:"Certeza BP Monitor",model:"BM-407",brand:"Certeza",cat:"BP Monitors",price:4200,stock:"In Stock",desc:"Upper Arm BP Monitor",icon:"❤️",warranty:"3 Years"},
+{id:3,name:"Certeza Glucometer",model:"GL-110",brand:"Certeza",cat:"Glucometers",price:3800,stock:"In Stock",desc:"Glucose Monitor",icon:"🩸",warranty:"Lifetime"},
+{id:4,name:"Rossmax Oximeter",model:"PO-200",brand:"Rossmax",cat:"Pulse Oximeters",price:2950,stock:"In Stock",desc:"Fingertip Oximeter",icon:"🩺",warranty:"2 Years"},
+{id:5,name:"Yuwell Suction Machine",model:"7E-A",brand:"Yuwell",cat:"Suction Machines",price:24500,stock:"In Stock",desc:"Phlegm Suction Machine",icon:"⚙️",warranty:"1 Year"},
+{id:6,name:"Certeza Thermometer",model:"FT-707",brand:"Certeza",cat:"Thermometers",price:1850,stock:"In Stock",desc:"Forehead Thermometer",icon:"🌡️",warranty:"2 Years"},
+{id:7,name:"Yuwell Oxygen Concentrator",model:"5L",brand:"Yuwell",cat:"Oxygen Equipment",price:135000,stock:"On Demand",desc:"5L Concentrator",icon:"💨",warranty:"1 Year"},
+{id:8,name:"Beurer BP Monitor",model:"BC-32",brand:"Beurer",cat:"BP Monitors",price:5500,stock:"In Stock",desc:"Wrist BP Monitor",icon:"❤️",warranty:"3 Years"},
+];
+let editId = null;
+
+function saveLS(){localStorage.setItem('ht_products', JSON.stringify(products)); updateStats();}
+function updateStats(){document.getElementById('totalP').innerText=products.length; document.getElementById('inStock').innerText=products.filter(p=>p.stock==='In Stock').length;}
+function render(){
+document.getElementById('tbody').innerHTML=products.map(p=>`<tr class="border-b"><td class="py-3"><div class="flex items-center gap-2"><span class="text-lg">${p.icon}</span><div><div class="font-bold text-xs">${p.name}</div><div class="text-[11px] text-gray-500">${p.cat}</div></div></div></td><td class="text-xs font-bold">${p.model}</td><td class="text-xs">${p.brand}</td><td class="text-xs">Rs. ${p.price.toLocaleString()}</td><td><span class="text-[10px] px-2 py-1 rounded-full ${p.stock==='In Stock'?'bg-green-100 text-green-700':'bg-yellow-100 text-yellow-700'}">${p.stock}</span></td><td><button onclick="editP(${p.id})" class="text-blue-600 text-xs mr-2">Edit</button><button onclick="delP(${p.id})" class="text-red-600 text-xs">Delete</button></td></tr>`).join('');
+updateStats();
+}
+
+document.getElementById('saveBtn').onclick=()=>{
+let prod={id:editId||Date.now(),name:document.getElementById('fName').value,model:document.getElementById('fModel').value,brand:document.getElementById('fBrand').value,cat:document.getElementById('fCat').value,price:parseInt(document.getElementById('fPrice').value)||0,stock:document.getElementById('fStock').value,desc:document.getElementById('fDesc').value,icon:document.getElementById('fIcon').value||'📦',warranty:document.getElementById('fWarranty').value||'1 Year'};
+if(!prod.name||!prod.model){alert('Name and Model required');return;}
+if(editId){let idx=products.findIndex(x=>x.id===editId); products[idx]=prod;} else {products.push(prod);}
+editId=null; saveLS(); render(); clearForm();
+};
+
+function clearForm(){['fName','fModel','fBrand','fPrice','fDesc','fIcon','fWarranty'].forEach(id=>document.getElementById(id).value='');}
+document.getElementById('cancelBtn').onclick=()=>{editId=null; clearForm();}
+document.getElementById('addBtn').onclick=()=>{editId=null; clearForm(); window.scrollTo({top:0,behavior:'smooth'});}
+window.editP=(id)=>{let p=products.find(x=>x.id===id); editId=id; document.getElementById('fName').value=p.name; document.getElementById('fModel').value=p.model; document.getElementById('fBrand').value=p.brand; document.getElementById('fCat').value=p.cat; document.getElementById('fPrice').value=p.price; document.getElementById('fStock').value=p.stock; document.getElementById('fDesc').value=p.desc; document.getElementById('fIcon').value=p.icon; document.getElementById('fWarranty').value=p.warranty; window.scrollTo({top:0,behavior:'smooth'});}
+window.delP=(id)=>{if(confirm('Delete product?')){products=products.filter(x=>x.id!==id); saveLS(); render();}}
+
+document.getElementById('exportBtn').onclick=()=>{
+let data=JSON.stringify(products,null,2);
+let blob=new Blob([data],{type:'application/json'});
+let url=URL.createObjectURL(blob);
+let a=document.createElement('a'); a.href=url; a.download='products.json'; a.click();
+alert('products.json exported! Upload to GitHub for ERP sync.');
+};
+
+render();
+</script>
+</body>
+</html>
