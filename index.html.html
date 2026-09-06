@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humayun Traders - Reliable Medical Equipment</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif} .poppins{font-family:Poppins,sans-serif}
+body.tech-bg{background:#020a12 url('/mnt/data/abstract-digital-grid-black-background.jpg') no-repeat center center fixed; background-size:cover; position:relative}
+body.tech-bg::before{content:''; position:fixed; inset:0; background:radial-gradient(ellipse at center, rgba(0,168,181,0.15) 0%, rgba(2,10,18,0.9) 70%); pointer-events:none; z-index:-1}
+.product-card{transition: all 0.3s ease; border:1px solid rgba(0,255,255,0.15); background:white; box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.product-card:hover{transform: translateY(-6px); box-shadow:0 15px 30px rgba(0,255,255,0.2); border-color:rgba(0,255,255,0.4)}
+.product-img-wrap{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%); height:160px; display:flex; align-items:center; justify-content:center; border-radius:12px; overflow:hidden; position:relative}
+.product-img{height:130px; object-fit:contain}
+.tech-glow{box-shadow:0 0 20px rgba(0,255,255,0.3)}
+</style>
+</head>
+<body class="tech-bg">
+<div class="bg-black/80 backdrop-blur text-cyan-300 text-[11px] py-2 px-4 flex justify-between border-b border-cyan-500/20"><span>📍 Lahore, Pakistan | 📞 0308-4506303</span><span class="hidden md:block">✅ 100% Genuine | 🚚 Fast Delivery | 🛡️ Warranty</span></div>
+<header class="sticky top-0 z-40 bg-[#020a12]/80 backdrop-blur-xl border-b border-cyan-500/20">
+<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3"><div class="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-black font-bold text-lg shadow-lg shadow-cyan-500/30">H</div><div><div class="poppins font-bold text-white leading-none">HUMAYUN TRADERS</div><div class="text-[9px] tracking-[0.2em] text-cyan-400 font-bold">RELIABLE MEDICAL EQUIPMENT</div></div></div>
+<div class="flex flex-1 max-w-md mx-6"><input id="search" placeholder="Search products..." class="w-full bg-white/10 border border-cyan-500/20 rounded-full px-5 py-2.5 text-sm text-white placeholder-gray-400 focus:border-cyan-400 outline-none focus:ring-2 focus:ring-cyan-400/20"></div>
+<a href="https://wa.me/923084506303" target="_blank" class="bg-[#25D366] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg">W</a>
+</div>
+</header>
+<section class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
+<div><div class="bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[11px] font-bold px-3 py-1 rounded-full inline-block mb-3">🏥 TRUSTED BY 5000+ CUSTOMERS • TECH ENABLED</div><h1 class="poppins text-3xl md:text-[42px] font-bold leading-[1.1] text-white">Reliable Medical<br><span class="text-cyan-400">Equipment for Home,</span><br>Pharmacy & Hospital</h1><p class="text-gray-300 mt-3 text-sm">Original Certeza, CC, Citizen & more — Warranty Protected, COD Available.</p><div class="flex gap-3 mt-5"><a href="#products" class="bg-cyan-500 text-black px-5 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-cyan-500/30">Explore 150+ Products</a><a href="https://wa.me/923084506303" class="border border-cyan-400/50 text-cyan-300 px-5 py-2.5 rounded-full font-bold text-sm">WhatsApp</a></div></div>
+<div class="bg-gradient-to-br from-[#0a1628] to-[#0f2a44] border border-cyan-500/30 rounded-[1.8rem] p-5 text-white shadow-2xl shadow-cyan-500/10"><div class="flex justify-between items-center mb-3"><div class="flex items-center gap-2"><span class="bg-red-500 text-[9px] font-bold px-2 py-1 rounded-full animate-pulse shadow shadow-red-500/50">🔥 HOT</span><span class="font-bold text-sm text-cyan-100">Hot Selling Items</span></div><div class="flex gap-1" id="hotDots"></div></div><div id="hotCarousel" class="relative overflow-hidden rounded-2xl bg-white"></div></div>
+</section>
+<section class="bg-[#020a12]/60 backdrop-blur py-8 border-y border-cyan-500/10"><div class="max-w-7xl mx-auto px-4"><h2 class="poppins text-xl font-bold text-white">🩺 Categories</h2><div id="cats" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-4"></div></div></section>
+<section id="products" class="max-w-7xl mx-auto px-4 py-8"><div class="flex justify-between items-center"><h2 class="poppins text-xl font-bold text-white">All Products <span class="text-sm font-normal text-cyan-300">(159 Items)</span></h2><select id="brandF" class="border border-cyan-500/20 bg-white/10 text-white rounded-full px-4 py-2 text-sm"><option value="" class="text-black">All Brands</option><option class="text-black">Certeza</option><option class="text-black">CC</option><option class="text-black">Other</option></select></div><div id="grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mt-5"></div></section>
+<div id="modal" class="fixed inset-0 bg-black/80 backdrop-blur hidden z-[100] p-4"><div class="bg-white max-w-3xl mx-auto rounded-2xl p-6 mt-10"><div class="flex justify-between"><h3 id="mTitle" class="font-bold text-lg"></h3><button onclick="closeM()" class="text-xl">✕</button></div><div id="mBody" class="mt-4"></div></div></div>
+<script>
+const prods = [
+{id:1,name:"Accu Answer Strips( Pack of 50)",model:"M1",brand:"Other",cat:"Glucometers",desc:"Accu Answer Strips( Pack of 50)",icon:"🩸"},
+{id:17,name:"CC Arm Type Blood Pressure Monitor",model:"TD-4222",brand:"CC",cat:"BP Monitors",desc:"CC Arm Type Blood Pressure Monitor Model:- TD-4222",icon:"❤️"},
+{id:18,name:"CC Arm Type Blood Pressure Monitor",model:"TD-4333",brand:"CC",cat:"BP Monitors",desc:"CC Arm Type Blood Pressure Monitor Model:- TD-4333",icon:"❤️"},
+{id:19,name:"CC Arm Type Blood Pressure Monitor",model:"TD-4111",brand:"CC",cat:"BP Monitors",desc:"CC Wrist Type Model TD-4111",icon:"❤️"},
+{id:45,name:"Certeza BM-407 Arm Type BP Monitor",model:"BM-407",brand:"Certeza",cat:"BP Monitors",desc:"Arm Type BP Monitor BM-407 with Memory",icon:"❤️"},
+{id:47,name:"Certeza BM-400 Blood Pressure Monitor",model:"BM-400",brand:"Certeza",cat:"BP Monitors",desc:"BM-400 Fully Automatic BP Monitor",icon:"❤️"},
+{id:60,name:"Certeza NB-608 Compressor Nebulizer",model:"NB-608",brand:"Certeza",cat:"Nebulizers",desc:"NB-608 Compressor Nebulizer for Adults & Kids",icon:"🫁"},
+{id:70,name:"Certeza GL-110 Glucometer Set",model:"GL-110",brand:"Certeza",cat:"Glucometers",desc:"GL-110 Blood Glucose Monitor with Strips",icon:"🩸"},
+{id:67,name:"Certeza PO-905 Pulse Oximeter",model:"PO-905",brand:"Certeza",cat:"Pulse Oximeters",desc:"PO-905 Fingertip Pulse Oximeter SpO2",icon:"🩺"},
+{id:62,name:"Certeza GS-808 Weight Scale",model:"GS-808",brand:"Certeza",cat:"Weight Scales",desc:"GS-808 Digital Weight Scale Floral Design",icon:"⚖️"},
+{id:21,name:"CC Compressor Nebulizer Model:-TD-1",model:"TD-1133",brand:"CC",cat:"Nebulizers",desc:"CC Compressor Nebulizer Model:-TD-1133",icon:"🫁"},
+{id:25,name:"CC Digital Thermometer Model:- TD-2",model:"TD-2233",brand:"CC",cat:"Thermometers",desc:"CC Digital Thermometer Model:- TD-2233",icon:"🌡️"},
+];
+const cats=["BP Monitors","Glucometers","Nebulizers","Pulse Oximeters","Thermometers","Weight Scales","Other Medical"];
+const hotItems=[
+{tag:"HOT",color:"bg-red-500",name:"BM-407 Arm BP Monitor",desc:"Memory + Warranty",model:"BM-407"},
+{tag:"SALE",color:"bg-green-500",name:"PO-905 Pulse Oximeter",desc:"SpO2 + Pulse",model:"PO-905"},
+{tag:"NEW",color:"bg-blue-500",name:"NB-608 Nebulizer",desc:"For Adults & Kids",model:"NB-608"},
+];
+const realImages={
+  "BM-407": "https://via.placeholder.com/200x150/0F4C75/FFFFFF?text=BM-407",
+  "PO-905": "https://via.placeholder.com/200x150/00A8B5/FFFFFF?text=PO-905",
+  "TD-4222": "https://via.placeholder.com/200x150/0F4C75/FFFFFF?text=TD-4222",
+  "TD-4333": "https://via.placeholder.com/200x150/0F4C75/FFFFFF?text=TD-4333",
+  "TD-4111": "https://via.placeholder.com/200x150/0F4C75/FFFFFF?text=TD-4111",
+  "NB-608": "https://via.placeholder.com/200x150/00A8B5/FFFFFF?text=NB-608",
+  "GL-110": "https://via.placeholder.com/200x150/00A8B5/FFFFFF?text=GL-110",
+  "GS-808": "https://via.placeholder.com/200x150/0F4C75/FFFFFF?text=GS-808",
+};
+function getRealImg(p){ if(realImages[p.model]) return realImages[p.model]; return null; }
+function getSmartIcon(p){ let n=(p.name||"").toLowerCase(); if(n.includes("bp")) return "❤️"; if(n.includes("nebulizer")) return "🫁"; if(n.includes("oximeter")) return "🩺"; if(n.includes("thermometer")) return "🌡️"; if(n.includes("gluco")) return "🩸"; return p.icon||"📦"; }
+const catIcons={"BP Monitors":"❤️","Glucometers":"🩸","Nebulizers":"🫁","Pulse Oximeters":"🩺","Thermometers":"🌡️","Weight Scales":"⚖️","Other Medical":"📦"};
+function renderCats(){document.getElementById('cats').innerHTML=cats.map(c=>`<button onclick="filterCat('${c}')" class="border border-cyan-500/20 bg-white/5 backdrop-blur rounded-2xl p-4 text-left hover:border-cyan-400/50 hover:bg-white/10 transition"><div class="text-2xl">${catIcons[c]||'📦'}</div><div class="font-bold text-sm mt-2 text-white">${c}</div></button>`).join('')}
+let activeCat=''; let hotIndex=0;
+function render(list){
+if(!list || list.length===0){document.getElementById('grid').innerHTML='<div class="col-span-4 text-center py-10 text-gray-400">No products found</div>'; return;}
+document.getElementById('grid').innerHTML=list.map(p=>{
+  let realImg = getRealImg(p);
+  let smartIcon = getSmartIcon(p);
+  return `<div class="product-card rounded-[1.2rem] p-3 group">
+<div class="product-img-wrap">${realImg ? `<img src="${realImg}" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="hidden text-4xl" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">${smartIcon}</div>` : `<div class="text-4xl">${smartIcon}</div>`}<span class="absolute top-2 left-2 bg-[#0F4C75] text-white text-[8px] font-bold px-2 py-1 rounded-full">${p.brand||'Certeza'}</span><span class="absolute top-2 right-2 bg-green-100 text-green-700 text-[8px] font-bold px-2 py-1 rounded-full">In Stock</span></div>
+<div class="mt-3"><div class="text-[9px] text-cyan-400 font-bold tracking-widest">${p.brand||'Certeza'} • ${p.model}</div><div class="font-bold text-[13px] mt-1 poppins leading-tight">${p.name}</div><div class="text-[11px] text-gray-500 mt-1">${p.desc}</div><div class="mt-3 flex items-center gap-2"><a href="https://wa.me/923084506303?text=${encodeURIComponent('Mujhe '+p.name+' chahiye')}" target="_blank" class="flex-1 bg-[#25D366] text-white py-2 rounded-full text-[11px] font-bold flex items-center justify-center">WhatsApp</a><button onclick="openM(${p.id})" class="w-8 h-8 border rounded-full flex items-center justify-center text-xs">👁️</button></div></div></div>`;
+}).join('');
+}
+function renderHot(){
+  const h=hotItems[hotIndex];
+  let hImg = realImages[h.model];
+  let icon = "📦";
+  document.getElementById('hotCarousel').innerHTML=`<div class="bg-white text-gray-900 rounded-2xl p-4"><div class="flex justify-between"><div><div class="flex gap-2"><span class="text-[9px] font-bold px-2 py-1 rounded-full text-white ${h.color}">${h.tag}</span></div><div class="font-bold text-[15px] mt-1">${h.name}</div><div class="text-[11px] text-gray-500">${h.desc}</div></div><div class="bg-green-100 text-green-700 text-[9px] px-2 py-1 rounded-full font-bold">In Stock</div></div><div class="mt-3 h-36 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl flex items-center justify-center">${hImg ? `<img src="${hImg}" class="h-32 object-contain">` : `<div class="text-5xl">${icon}</div>`}</div><div class="mt-3 flex gap-2"><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" class="flex-1 bg-[#0F4C75] text-white py-2 rounded-full font-bold text-xs">View Details</button><a href="https://wa.me/923084506303?text=${encodeURIComponent('Mujhe '+h.name+' chahiye')}" target="_blank" class="flex-1 bg-[#25D366] text-white py-2 rounded-full font-bold text-xs flex items-center justify-center">WhatsApp</a></div></div>`;
+  document.getElementById('hotDots').innerHTML=hotItems.map((_,i)=>`<div class="w-2 h-2 rounded-full ${i===hotIndex?'bg-white':'bg-white/40'}"></div>`).join('');
+}
+setInterval(()=>{hotIndex=(hotIndex+1)%hotItems.length; renderHot();},3500);
+function apply(){let q=document.getElementById('search').value.toLowerCase(); let bf=document.getElementById('brandF').value; let list=prods.filter(p=>{let mq=!q||(p.name+p.model+p.brand).toLowerCase().includes(q); let mc=!activeCat||p.cat===activeCat; let mb=!bf||p.brand===bf; return mq&&mc&&mb;}); render(list);}
+function filterCat(c){activeCat=c; apply(); document.getElementById('products').scrollIntoView({behavior:'smooth'})}
+function openM(id){let p=prods.find(x=>x.id===id); if(!p) return; document.getElementById('mTitle').innerText=p.name+' '+p.model; document.getElementById('mBody').innerHTML=`<div><p class="text-sm text-gray-600">${p.desc}</p><p class="mt-3 text-xs">Model: ${p.model} | Brand: ${p.brand}</p><a href="https://wa.me/923084506303" target="_blank" class="mt-4 bg-[#25D366] text-white px-4 py-2 rounded-full text-xs font-bold inline-block">WhatsApp</a></div>`; document.getElementById('modal').classList.remove('hidden');}
+function closeM(){document.getElementById('modal').classList.add('hidden')}
+document.getElementById('search').addEventListener('input',apply);
+document.getElementById('brandF').addEventListener('change',apply);
+renderCats(); render(prods); renderHot();
+</script>
+</body>
+</html>
